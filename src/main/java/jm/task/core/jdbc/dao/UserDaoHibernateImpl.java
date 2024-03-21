@@ -1,11 +1,12 @@
 package jm.task.core.jdbc.dao;
 
-import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.Util;
 
 public class UserDaoHibernateImpl implements UserDao {
 
@@ -18,8 +19,9 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = Util.getSessionFactory().openSession()) {
             session.beginTransaction();
             session.createSQLQuery("CREATE TABLE IF NOT EXISTS users" +
-                    " (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50)," +
-                    " lastName VARCHAR(50), age TINYINT(3))").executeUpdate();
+                                           " (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50)," +
+                                           " lastName VARCHAR(50), age TINYINT(3))")
+                    .executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }

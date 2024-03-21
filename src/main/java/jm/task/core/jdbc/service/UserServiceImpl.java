@@ -1,13 +1,13 @@
 package jm.task.core.jdbc.service;
 
+import java.util.List;
+
 import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.model.User;
 
-import java.util.List;
-
 public class UserServiceImpl implements UserService {
-    UserDao userDaoJDBC = new UserDaoHibernateImpl();
+    private UserDao userDaoJDBC = new UserDaoHibernateImpl();
 
     public void createUsersTable() {
         userDaoJDBC.createUsersTable();

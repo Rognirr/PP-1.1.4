@@ -1,8 +1,5 @@
 package jm.task.core.jdbc.dao;
 
-import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.Util;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.Util;
+
 public class UserDaoJDBCImpl implements UserDao {
-    private final String sqlCreateTable = "CREATE TABLE IF NOT EXISTS users" +
-            " (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50)," +
-            " lastName VARCHAR(50), age TINYINT(3))";
+    private final String sqlCreateTable =
+            "CREATE TABLE IF NOT EXISTS users" + " (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR(50)," +
+                    " lastName VARCHAR(50), age TINYINT(3))";
     private final String sqlDropTable = "DROP TABLE IF EXISTS users";
     private final String sqlInsertUser = "INSERT INTO users (name, lastName, age) VALUES(?, ?, ?);";
     private final String sqlRemoveUserById = "DELETE FROM users WHERE (id = ?);";
